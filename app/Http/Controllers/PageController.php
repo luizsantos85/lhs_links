@@ -26,7 +26,7 @@ class PageController extends Controller
             'slug'          => $page->slug,
             'font_color'    => $page->op_bg_color,
             'bg_value'      => $page->op_bg_value,
-            'profile_image' => url('/media/uploads') . '/' . $page->slug,
+            'profile_image' => url('/media/uploads') . '/' . $page->op_profile_image,
             'title'         => $page->op_title,
             'description'   => $page->op_description,
             'fb_pixel'      => $page->op_fb_pixel,
