@@ -11,4 +11,6 @@ class View extends Model
 
     public $timestamps = false;
 
+    protected $filable = ['id_page','view_date'];
+
 }

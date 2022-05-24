@@ -18,6 +18,7 @@ class CreateAllTables extends Migration
             $table->string('email');
             $table->string('password');
         });
+
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->integer('id_user');
@@ -25,11 +26,12 @@ class CreateAllTables extends Migration
             $table->string('op_bg_color')->default('#000000');
             $table->string('op_bg_type')->default('color');
             $table->string('op_bg_value')->default('#ffffff');
-            $table->string('op_profile_image')->default('default.png');
+            $table->string('op_profile_image')->default('default.jpg');
             $table->string('op_title')->nullable();
             $table->string('op_description')->nullable();
             $table->string('op_fb_pixel')->nullable();
         });
+
         Schema::create('links', function (Blueprint $table) {
             $table->id();
             $table->integer('id_page');
@@ -41,12 +43,14 @@ class CreateAllTables extends Migration
             $table->string('op_text_color')->nullable();
             $table->string('op_boder_type')->nullable();
         });
+
         Schema::create('views', function (Blueprint $table) {
             $table->id();
             $table->integer('id_page');
             $table->date('view_date');
             $table->integer('total')->default(0);
         });
+
         Schema::create('clicks', function (Blueprint $table) {
             $table->id();
             $table->integer('id_link');
