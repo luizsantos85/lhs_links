@@ -41,7 +41,7 @@ class CreateAllTables extends Migration
             $table->string('href');
             $table->string('op_bg_color')->nullable();
             $table->string('op_text_color')->nullable();
-            $table->string('op_boder_type')->nullable();
+            $table->string('op_border_type')->nullable();
         });
 
         Schema::create('views', function (Blueprint $table) {

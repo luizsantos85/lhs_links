@@ -19,10 +19,7 @@
 
 
     <footer>
-        <div class="banner">
-            Feito com &#10084; por <a href="https://lhscode.com.br" target="_blank"
-                rel="noopener noreferrer">LHSCODE</a>
-        </div>
+
     </footer>
 
 

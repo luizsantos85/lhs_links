@@ -10,7 +10,7 @@ a{
 button{
     cursor: pointer;
 }
-footer{
+/* footer{
     width: 100%;
     padding: 10px 0;
     display: flex;
@@ -19,6 +19,6 @@ footer{
     align-items: center;
     background-color: #3498db;
     color: #fff;
-}
+} */
 
 .container{}

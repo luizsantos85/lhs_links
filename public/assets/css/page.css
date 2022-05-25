@@ -1,4 +1,40 @@
-.profileImage{}
-.profileTitle{}
-.profileDescription{}
-.linkArea{}
+.contentPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    min-height: 500px;
+    padding: 0 1%;
+}
+
+.profileImage img {
+    height: auto;
+    width: 150px;
+}
+.profileTitle {
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.profileDescription {
+    font-size: 15px;
+    margin-top: 10px;
+}
+.linkArea {
+    width: 100%;
+    margin: 50px 0;
+    max-width: 700px;
+}
+
+.linkArea a{
+    background-color: #ccc;
+    display: block;
+    margin-bottom: 10px;
+    padding: 20px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+

@@ -2,13 +2,28 @@
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/css/page.css')}}">
+<style>
+    .contentPage {
+        background: {{$data['bg']}};
+        color: {{$data['font_color']}};
+    }
+    .banner a {
+        color: {{$data['font_color']}};
+    }
+    .linkArea a.linkquare{
+        border-radius: 0;
+    }
+    .linkArea a.linkrounded{
+        border-radius: 20px;
+    }
+</style>
 @endpush
 
 @section('title' , $data['title'])
 
 @section('content')
 
-<section>
+<section class="contentPage" >
     <div class="profileImage">
         <img src="{{$data['profile_image']}}" alt="imge_{{$data['title']}}">
     </div>
@@ -22,7 +37,20 @@
     </div>
 
     <div class="linkArea">
+        @foreach ($data['links'] as $link)
+                <a href="{{$link['href']}}"
+                    class="link{{$link['op_boder_type']}}"
+                    style="background-color:{{$link['op_bg_color']}} ; color:{{$link['op_text_color']}};" target="_blank" rel="noopener noreferrer"
+                >
+                    {{ucfirst($link['title'])}}
+                </a>
 
+        @endforeach
+    </div>
+
+    <div class="banner">
+        Feito com &#10084; por <a style="color: {{$data['font_color']}}" href="https://lhscode.com.br" target="_blank"
+            rel="noopener noreferrer">LHSCODE</a>
     </div>
 
 </section>

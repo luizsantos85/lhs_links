@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Link;
 use Illuminate\Http\Request;
 use App\Models\Page;
 
@@ -12,15 +13,32 @@ class PageController extends Controller
     {
         $page = Page::where('slug', $slug)->first();
 
-        if (!$page){
+        if (!$page) {
             return view('notfound');
         }
         //Background
         $bg = '';
+        switch ($page->op_bg_type) {
+            case 'image':
+                $bg = "url('" . url('/media/uploads') . '/' . $$page->op_bg_value . "')";
+                break;
+
+            case 'color':
+                $colors = explode(',', $page->op_bg_value);
+                $bg = 'linear-gradient(90deg,';
+                $bg .= $colors[0] . ',';
+                $bg .= !empty($colors[1]) ? $colors[1] : $colors[0];
+                $bg .= ')';
+                break;
+        }
 
 
         //Links
-        $links = [];
+        $links = Link::where('id_page',$page->id)->where('status',1)->orderBy('order')->get();
+
+
+        //Registrar views
+
 
         $data = [
             'slug'          => $page->slug,
@@ -30,7 +48,7 @@ class PageController extends Controller
             'title'         => $page->op_title,
             'description'   => $page->op_description,
             'fb_pixel'      => $page->op_fb_pixel,
-            'bg'            =>$bg,
+            'bg'            => $bg,
             'links'         => $links
         ];
 
