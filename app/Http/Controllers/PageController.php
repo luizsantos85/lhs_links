@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Link;
 use Illuminate\Http\Request;
 use App\Models\Page;
-
+use App\Models\View;
 
 class PageController extends Controller
 {
@@ -16,6 +16,7 @@ class PageController extends Controller
         if (!$page) {
             return view('notfound');
         }
+
         //Background
         $bg = '';
         switch ($page->op_bg_type) {
@@ -32,13 +33,15 @@ class PageController extends Controller
                 break;
         }
 
-
         //Links
-        $links = Link::where('id_page',$page->id)->where('status',1)->orderBy('order')->get();
-
+        $links = Link::where('id_page', $page->id)->where('status', 1)->orderBy('order')->get();
 
         //Registrar views
-
+        $view = View::firstOrNew(
+            ['id_page' => $page->id, 'view_date' => date('Y-m-d')]
+        );
+        $view->total++;
+        $view->save();
 
         $data = [
             'slug'          => $page->slug,
@@ -53,5 +56,10 @@ class PageController extends Controller
         ];
 
         return view('page.index', compact('data'));
+    }
+
+    public function store()
+    {
+        
     }
 }

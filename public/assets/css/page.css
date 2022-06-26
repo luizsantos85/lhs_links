@@ -35,6 +35,10 @@
     font-size: 18px;
     font-weight: bold;
     text-align: center;
+    transition: all ease .4;
 }
 
+.linkArea a:hover{
+    opacity: .8;
+}
 
