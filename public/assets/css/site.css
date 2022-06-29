@@ -1,15 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: 0;
-}
-a{
-    text-decoration: none;
-}
-button{
-    cursor: pointer;
-}
+@import url("reset.css");
 /* footer{
     width: 100%;
     padding: 10px 0;
@@ -20,5 +9,3 @@ button{
     background-color: #3498db;
     color: #fff;
 } */
-
-.container{}

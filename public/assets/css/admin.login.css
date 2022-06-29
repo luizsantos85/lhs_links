@@ -1,0 +1,74 @@
+@import url("reset.css");
+
+.formLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+    flex-direction: column;
+}
+.formLogin h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 400;
+}
+.formLogin form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px 1%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.formLogin input {
+    width: 100%;
+    height: 35px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+.formLogin input:focus {
+    background-color: #ccc;
+}
+.formLogin button {
+    width: 150px;
+    height: 40px;
+    padding: 10px 20px;
+    margin: 0 auto 20px auto;
+    background-color: #3498db;
+    color: #fff;
+    font-weight: 500;
+    border: 0;
+    border-radius: 10px;
+    transition: all ease 0.4s;
+}
+.formLogin button:hover {
+    background-color: #fff;
+    color: #3498db;
+    border: 1px solid #ccc;
+}
+
+.formLogin p {
+    font-size: 0.8rem;
+}
+.formLogin a {
+    color: #3498db;
+}
+
+.formLogin .error{
+    padding: 10px;
+    width: 100%;
+    background-color: #c0392b;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 500;
+}
