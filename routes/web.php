@@ -17,9 +17,15 @@ Route::prefix('/admin')->group(function () {
 
 
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('/{slug}/links', [AdminController::class, 'index'])->name('admin.links');
-    Route::get('/{slug}/design', [AdminController::class, 'index'])->name('admin.design');
-    Route::get('/{slug}/stats', [AdminController::class, 'index'])->name('admin.stats');
+
+    Route::get('/{slug}/links', [AdminController::class, 'pageLinks'])->name('admin.links');
+    Route::get('/{slug}/newlink', [AdminController::class, 'pageLinks'])->name('admin.newlink');
+    Route::get('/{slug}/editlink/{id}', [AdminController::class, 'pageLinks'])->name('admin.editlink');
+    Route::get('/{slug}/dellink/{id}', [AdminController::class, 'pageLinks'])->name('admin.destroylink');
+
+
+    Route::get('/{slug}/design', [AdminController::class, 'pageDesign'])->name('admin.design');
+    Route::get('/{slug}/stats', [AdminController::class, 'pageStats'])->name('admin.stats');
 });
 
 Route::get('/{slug}', [PageController::class, 'index'])->name('page.index');

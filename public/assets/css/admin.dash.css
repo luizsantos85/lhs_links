@@ -10,7 +10,7 @@ nav {
     top: 0;
     bottom: 0;
     width: 60px;
-    background-color: #fff;
+    background-color: #2d3436;
     border-right: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
@@ -18,9 +18,9 @@ nav {
     flex-direction: column;
     padding: 10px 0;
 }
-.material-symbols-outlined {
+nav .material-symbols-outlined {
     font-size: 2rem;
-    color: #333;
+    color: #ddd;
 }
 
 .container {
@@ -33,6 +33,23 @@ nav {
 header {
     background-color: #fff;
     padding: 10px;
+}
+header ul {
+    display: flex;
+}
+header li {
+    border-bottom: 2px solid #fff;
+    transition: all ease 0.4s;
+}
+header li:hover {
+    border-bottom: 2px solid #74b9ff;
+}
+header li.active{
+    border-bottom: 2px solid #74b9ff;
+}
+header li a {
+    display: block;
+    padding: 5px 15px;
 }
 .addPage {
     margin: 30px 0;
@@ -51,6 +68,11 @@ header {
     background-color: #fff;
     color: #0984e3;
     border: 0.5px solid #ccc;
+}
+.addLink a{
+    display: block;
+    text-align: center;
+
 }
 
 .tableLinks {
@@ -76,5 +98,60 @@ header {
 
 .tableLinks td a {
     margin: 5px;
-    /* padding: 5px 10px; */
+}
+
+.preheader {
+    background-color: #74b9ff;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+.area{
+    display: flex;
+    flex: 1;
+}
+.area .leftside{
+    flex: 1;
+    border-right: 1px solid #ccc;
+}
+.area .rightside{
+    margin: 0 auto;
+}
+.rightside iframe{
+    width: 300px;
+    height: 550px;
+    border: 10px solid #333;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+#links{
+    margin: 10px;
+}
+.linkItem{
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    box-shadow: 0 2px 2px #ccc;
+}
+.linkItemOrder{
+    cursor: move;
+    margin-right: 10px;
+}
+.linkItemOrder .material-symbols-outlined{}
+
+.linkItemInfo{
+    flex: 1;
+}
+.linkItemTitle{
+    font-weight: bold;
+}
+.linkItemHref{}
+.linkItemButtons a:nth-child(1){
+    color: #e67e22;
+    margin-right: 10px;
 }
