@@ -6,8 +6,8 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-color: #eee;
     flex-direction: column;
+
 }
 .formLogin h1 {
     margin-bottom: 20px;
@@ -64,7 +64,7 @@
     color: #3498db;
 }
 
-.formLogin .error{
+.formLogin .error {
     padding: 10px;
     width: 100%;
     background-color: #c0392b;

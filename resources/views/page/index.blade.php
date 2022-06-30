@@ -39,8 +39,8 @@
     <div class="linkArea">
         @foreach ($data['links'] as $link)
                 <a href="{{$link['href']}}"
-                    class="link{{$link['op_boder_type']}}"
-                    style="background-color:{{$link['op_bg_color']}} ; color:{{$link['op_text_color']}};" target="_blank" rel="noopener noreferrer"
+                    class="link{{$link['op_border_type']}}"
+                    style="background-color:{{$link['op_bg_color']}}; color:{{$link['op_text_color']}};" target="_blank" rel="noopener noreferrer"
                 >
                     {{ucfirst($link['title'])}}
                 </a>

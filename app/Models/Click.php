@@ -11,6 +11,6 @@ class Click extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['id_link', 'click_date'];
+    protected $fillable = ['link_id', 'click_date'];
 
 }

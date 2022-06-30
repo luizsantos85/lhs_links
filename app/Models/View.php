@@ -11,6 +11,6 @@ class View extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['id_page','view_date'];
+    protected $fillable = ['page_id','view_date'];
 
 }

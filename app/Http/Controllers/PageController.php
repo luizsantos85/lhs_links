@@ -34,11 +34,11 @@ class PageController extends Controller
         }
 
         //Links
-        $links = Link::where('id_page', $page->id)->where('status', 1)->orderBy('order')->get();
+        $links = Link::where('page_id', $page->id)->where('status', 1)->orderBy('order')->get();
 
         //Registrar views
         $view = View::firstOrNew(
-            ['id_page' => $page->id, 'view_date' => date('Y-m-d')]
+            ['page_id' => $page->id, 'view_date' => date('Y-m-d')]
         );
         $view->total++;
         $view->save();
@@ -60,6 +60,6 @@ class PageController extends Controller
 
     public function store()
     {
-        
+
     }
 }

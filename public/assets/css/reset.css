@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
 
 * {
     padding: 0;
@@ -14,6 +15,7 @@ button {
 
 a {
     text-decoration: none;
+    color: #000;
 }
 li {
     list-style: none;
@@ -22,15 +24,14 @@ button {
     cursor: pointer;
 }
 
-
 @media (max-width: 1080px) {
-	html {
-		font-size: 93.75%;
-	}
+    html {
+        font-size: 93.75%;
+    }
 }
 
 @media (max-width: 720px) {
-	html {
-		font-size: 87.5%;
-	}
+    html {
+        font-size: 87.5%;
+    }
 }

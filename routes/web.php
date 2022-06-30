@@ -11,12 +11,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::prefix('/admin')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginAction']);
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
     Route::get('/register', [AuthController::class, 'register'])->name('admin.register');
     Route::post('/register', [AuthController::class, 'registerAction']);
 
 
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/{slug}/links', [AdminController::class, 'index'])->name('admin.links');
+    Route::get('/{slug}/design', [AdminController::class, 'index'])->name('admin.design');
+    Route::get('/{slug}/stats', [AdminController::class, 'index'])->name('admin.stats');
 });
 
 Route::get('/{slug}', [PageController::class, 'index'])->name('page.index');
