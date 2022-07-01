@@ -8,7 +8,7 @@
 
 <ul id="links">
     @foreach ($links as $link)
-    <li class="linkItem">
+    <li class="linkItem" data-id="{{$link->id}}">
         <div class="linkItemOrder">
             <span class="material-symbols-outlined">
                 sort
@@ -32,6 +32,16 @@
 {{-- Scripts dinâmicos --}}
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-
+<script>
+    new Sortable(document.querySelector('#links'),{
+        animation: 150,
+        onEnd: async(e) => {
+            let id = e.item.getAttribute('data-id');
+            let link = `{{url('/admin/linkorder/${id}/${e.newIndex}')}}`;
+            await fetch(link);
+            window.location.href = window.location.href;
+        }
+    })
+</script>
 
 @endpush
