@@ -20,9 +20,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/{slug}/links', [AdminController::class, 'pageLinks'])->name('admin.links');
     Route::get('/{slug}/newlink', [AdminController::class, 'newLink'])->name('admin.newlink');
     Route::post('/{slug}/newlink', [AdminController::class, 'newLinkAction']);
+    Route::get('/{slug}/editlink/{linkid}', [AdminController::class, 'editLink'])->name('admin.editlink');
+    Route::post('/{slug}/editlink/{linkid}', [AdminController::class, 'editLinkAction']);
 
-    Route::get('/{slug}/editlink/{id}', [AdminController::class, 'pageLinks'])->name('admin.editlink');
-    Route::get('/{slug}/dellink/{id}', [AdminController::class, 'pageLinks'])->name('admin.destroylink');
+    Route::get('/{slug}/dellink/{linkid}', [AdminController::class, 'delLink'])->name('admin.destroylink');
 
 
     Route::get('/{slug}/design', [AdminController::class, 'pageDesign'])->name('admin.design');

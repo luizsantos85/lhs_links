@@ -4,7 +4,7 @@
 
 <form method="post" class="formPage">
     @csrf
-    <h3>Novo Link</h3>
+    <h3>{{isset($link) ? 'Editar Link' : 'Cadastrar Link'}}</h3>
 
     @if($errors->any())
     <ul class="error-list">
@@ -14,7 +14,7 @@
     </ul>
     @endif
 
-    @include('admin.formLink')
+    @include('admin.links.formLink')
 
 </form>
 

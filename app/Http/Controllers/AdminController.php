@@ -37,7 +37,7 @@ class AdminController extends Controller
 
         $links = Link::where('page_id', $page->id)->orderBy('order', 'ASC')->get();
 
-        return view('admin.page_links', compact('menu', 'page', 'links'));
+        return view('admin.links.page_links', compact('menu', 'page', 'links'));
     }
 
     public function newLink($slug)
@@ -45,13 +45,12 @@ class AdminController extends Controller
         $menu = 'links';
         $user = Auth::user();
         $page = Page::where('slug', $slug)->where('user_id', $user->id)->first();
-        $page = Page::where('slug', $slug)->where('user_id', $user->id)->first();
 
         if (!$page) {
             return redirect()->route('admin.index');
         }
 
-        return view('admin.page_edit', compact('page', 'menu'));
+        return view('admin.links.page_edit', compact('page', 'menu'));
     }
 
     public function newLinkAction($slug, Request $request)
@@ -88,17 +87,75 @@ class AdminController extends Controller
         return redirect()->route('admin.links', $page->slug);
     }
 
-    public function pageDesign($slug)
+    public function editLink($slug, $linkid)
     {
-        $menu = 'design';
+        $menu = 'links';
+        $user = Auth::user();
+        $page = Page::where('slug', $slug)->where('user_id', $user->id)->first();
 
-        return view('admin.page_links', compact('menu'));
+        if ($page) {
+            $link = Link::where('page_id', $page->id)->where('id', $linkid)->first();
+
+            if ($link) {
+                return view('admin.links.page_edit', compact('menu', 'page', 'link'));
+            }
+        }
+        return redirect()->route('admin.links', $page->slug);
     }
-    public function pageStats($slug)
-    {
-        $menu = 'stats';
 
-        return view('admin.page_links', compact('menu'));
+    public function editLinkAction($slug, $linkid, Request $request)
+    {
+        $user = Auth::user();
+        $page = Page::where('slug', $slug)->where('user_id', $user->id)->first();
+
+        if ($page) {
+            $link = Link::where('page_id', $page->id)->where('id', $linkid)->first();
+
+            if ($link) {
+                $fields = $request->validate([
+                    'status' => ['required', 'boolean'],
+                    'title' => ['required', 'min:2'],
+                    'href' => ['required', 'url'],
+                    'op_bg_color' => ['required', 'regex:/^[#][0-9a-f]{3,6}$/i'],
+                    'op_text_color' => ['required', 'regex:/^[#][0-9a-f]{3,6}$/i'],
+                    'op_border_type' => ['required', Rule::in(['square', 'rounded'])]
+                ]);
+
+                $link->status = $fields['status'];
+                $link->title = $fields['title'];
+                $link->href = $fields['href'];
+                $link->op_bg_color = $fields['op_bg_color'];
+                $link->op_text_color = $fields['op_text_color'];
+                $link->op_border_type = $fields['op_border_type'];
+                $link->save();
+
+                return redirect()->route('admin.links', $page->slug);
+            }
+        }
+        return redirect()->route('admin.index');
+    }
+
+    public function delLink($slug, $linkid)
+    {
+        $user = Auth::user();
+        $page = Page::where('slug', $slug)->where('user_id', $user->id)->first();
+
+        if ($page) {
+            $link = Link::where('page_id', $page->id)->where('id', $linkid)->first();
+
+            if ($link) {
+                $link->delete();
+
+                $allLinks = Link::where('page_id', $page->page_id)->orderBy('order', 'ASC')->get();
+                foreach ($allLinks as $linkKey => $linkItem) {
+                    $linkItem->order = $linkKey;
+                    $linkItem->save();
+                }
+                
+                return redirect()->route('admin.links', $page->slug);
+            }
+        }
+        return redirect()->route('admin.links', $page->slug);
     }
 
     public function linkOrderUpdate($linkid, $pos)
@@ -141,5 +198,18 @@ class AdminController extends Controller
         }
 
         return;
+    }
+
+    public function pageDesign($slug)
+    {
+        $menu = 'design';
+
+        return view('admin.links.page_links', compact('menu'));
+    }
+    public function pageStats($slug)
+    {
+        $menu = 'stats';
+
+        return view('admin.links.page_links', compact('menu'));
     }
 }

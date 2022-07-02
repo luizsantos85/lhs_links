@@ -1,16 +1,8 @@
-{{-- @if($errors->any())
-<ul class="error-list">
-    @foreach ($errors->all() as $error)
-    <li>{{$error}}</li>
-    @endforeach
-</ul>
-@endif --}}
-
 <label>
     Status:
     <select name="status">
-        <option value="1">Ativo</option>
-        <option value="0">Desativado</option>
+        <option {{isset($link) ? ($link->status == 1 ? 'selected' : '') : ''}} value="1">Ativo</option>
+        <option {{isset($link) ? ($link->status == 0 ? 'selected' : '') : ''}} value="0">Desativado</option>
     </select>
 </label>
 
@@ -37,8 +29,10 @@
 <label>
     Tipo de borda:
     <select name="op_border_type">
-        <option value="rounded" selected>Arredondada</option>
-        <option value="square">Quadrada</option>
+        <option {{isset($link) ? ($link->op_border_type == 'rounded' ? 'selected' : '') : ''}}
+            value="rounded">Arredondada</option>
+        <option {{isset($link) ? ($link->op_border_type == 'square' ? 'selected' : '') : ''}} value="square">Quadrada
+        </option>
     </select>
 </label>
 

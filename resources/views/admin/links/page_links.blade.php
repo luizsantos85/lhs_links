@@ -21,7 +21,8 @@
         </div>
         <div class="linkItemButtons">
             <a href="{{route('admin.editlink',[$page->slug,$link->id])}}">Editar</a>
-            <a href="{{route('admin.destroylink',[$page->slug,$link->id])}}">Excluir</a>
+            <a href="{{route('admin.destroylink',[$page->slug,$link->id])}}"
+                onclick="return confirm('Deseja realmente excluir o link?');">Excluir</a>
         </div>
     </li>
     @endforeach
