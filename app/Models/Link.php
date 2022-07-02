@@ -11,4 +11,5 @@ class Link extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['page_id', 'status', 'order', 'title', 'href', 'op_bg_color', 'op_text_color', 'op_border_type'];
 }

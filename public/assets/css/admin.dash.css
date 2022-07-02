@@ -30,6 +30,14 @@ nav .material-symbols-outlined {
     min-height: 100vh;
     margin-left: 60px;
 }
+.error-list{
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-weight: 500;
+}
 header {
     background-color: #fff;
     padding: 10px;
@@ -44,7 +52,7 @@ header li {
 header li:hover {
     border-bottom: 2px solid #74b9ff;
 }
-header li.active{
+header li.active {
     border-bottom: 2px solid #74b9ff;
 }
 header li a {
@@ -69,10 +77,9 @@ header li a {
     color: #0984e3;
     border: 0.5px solid #ccc;
 }
-.addLink a{
+.addLink a {
     display: block;
     text-align: center;
-
 }
 
 .tableLinks {
@@ -107,18 +114,18 @@ header li a {
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
 }
-.area{
+.area {
     display: flex;
     flex: 1;
 }
-.area .leftside{
+.area .leftside {
     flex: 1;
     border-right: 1px solid #ccc;
 }
-.area .rightside{
+.area .rightside {
     margin: 0 auto;
 }
-.rightside iframe{
+.rightside iframe {
     width: 300px;
     height: 550px;
     border: 10px solid #333;
@@ -126,10 +133,10 @@ header li a {
     margin: 20px;
 }
 
-#links{
+#links {
     margin: 10px;
 }
-.linkItem{
+.linkItem {
     display: flex;
     background-color: #fff;
     margin-bottom: 20px;
@@ -138,22 +145,70 @@ header li a {
     align-items: center;
     box-shadow: 0 2px 2px #ccc;
 }
-.linkItemOrder{
+.linkItemOrder {
     cursor: move;
     margin-right: 10px;
 }
-.linkItemOrder .material-symbols-outlined{}
 
-.linkItemInfo{
+.linkItemOrder .material-symbols-outlined {
+}
+
+.linkItemInfo {
     flex: 1;
 }
-.linkItemTitle{
+.linkItemTitle {
     font-weight: bold;
 }
-.linkItemHref{
-    font-size: .8rem;
+.linkItemHref {
+    font-size: 0.8rem;
 }
-.linkItemButtons a:nth-child(1){
+.linkItemButtons a:nth-child(1) {
     color: #e67e22;
     margin-right: 10px;
+}
+
+.formPage {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 10px;
+    border-radius: 10px;
+    /* background-color: #fff; */
+    /* box-shadow: 0 2px 2px #ccc; */
+}
+
+.formPage label {
+    flex: 1;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+.formPage input,
+.formPage select {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    width: 100%;
+    height: 35px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.formPage button {
+    margin: 20px 0 10px 0;
+    width: 120px;
+    height: 40px;
+    padding: 10px 20px;
+    border: 0;
+    background-color: #0984e3;
+    color: #fff;
+    border-radius: 10px;
+    transition: all ease 0.4s;
+    border: 0.5px solid #0984e3;
+}
+.formPage button:hover {
+    background-color: #fff;
+    color: #0984e3;
+
+    border: 0.5px solid #0984e3;
 }
